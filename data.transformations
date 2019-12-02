@@ -1,0 +1,40 @@
+CREATE TABLE sales_genre
+(
+Genre string,
+Global_Sales float,
+Critic_Score float
+);
+EXECUTE
+
+SELECT * FROM sales_genre LIMIT 10;
+EXECUTE
+
+INSERT OVERWRITE TABLE sales_genre
+SELECT Genre, Global_Sales, Critic_Score
+FROM sales;
+EXECUTE
+
+SELECT * FROM sales_genre LIMIT 10;
+EXECUTE
+
+INSERT OVERWRITE TABLE sales_genre
+SELECT Genre, ROUND(Global_Sales) AS Global_Sales, Critic_Score
+FROM sales_genre;
+EXECUTE
+
+SELECT * FROM sales_genre LIMIT 10;
+EXECUTE
+
+SELECT * FROM sales_genre
+WHERE Critic_Score > 0;
+EXECUTE
+
+SELECT * FROM sales_genre LIMIT 10;
+EXECUTE
+
+SELECT * FROM sales_genre
+ORDER BY Critic_Score DESC;
+EXECUTE
+
+SELECT * FROM sales_genre LIMIT 10;
+EXECUTE
