@@ -1,0 +1,92 @@
+CREATE TABLE sales_genre
+
+(
+
+Genre string,
+
+Global_Sales float,
+
+Critic_Score float
+
+);
+
+*EXECUTE*
+
+ 
+
+SELECT AVG(critic_score) AS sports_critic_score
+
+FROM sales_genre
+
+WHERE genre LIKE “%sports%”;
+
+*EXECUTE*
+
+ 
+
+SELECT AVG(critic_score) AS shooter_critic_score
+
+FROM sales_genre
+
+WHERE genre LIKE “%shooter%”;
+
+*EXECUTE*
+
+ 
+
+ 
+
+2) Create 3 statistics tables (average, min, max) for the global_sales for:  all games, Sports games, Shooter games.  For each table, label the columns as: “average_global_sales”, “min_global_sales”, and “max_global_sales”.
+
+ 
+
+SELECT AVG(global_sales) AS average_global_sales, MIN(global_sales) AS min_global_sales, MAX(global_sales) AS max_global_sales
+
+FROM sales_genre;
+
+*EXECUTE*
+
+ 
+
+SELECT AVG(global_sales) AS average_global_sales, MIN(global_sales) AS min_global_sales, MAX(global_sales) AS max_global_sales
+
+FROM sales_genre;
+
+WHERE genre LIKE “%shooter%”;
+
+*EXECUTE*
+
+ 
+
+SELECT AVG(global_sales) AS average_global_sales, MIN(global_sales) AS min_global_sales, MAX(global_sales) AS max_global_sales
+
+FROM sales_genre;
+
+WHERE genre LIKE “%sports%”
+
+*EXECUTE*
+
+ 
+
+3)  Create 2 tables containing the global_sales and the count of games with that global_sales for: Sports games and Shooter games.  For each table, label the columns as: “global_sales” and “count”.
+
+ 
+SELECT ROUND(global_sales) AS global_sales, COUNT(global_sales) AS count
+
+FROM sales_genre
+
+WHERE genre LIKE “%sports%”
+
+GROUP BY global_sales
+
+*EXECUTE*
+
+SELECT ROUND(global_sales) AS global_sales, COUNT(global_sales) AS count
+
+FROM sales_genre
+
+WHERE genre LIKE “%shooter%”
+
+GROUP BY global_sales
+
+*EXECUTE*
